@@ -49,6 +49,7 @@ public class Group : MonoBehaviour {
 	// Update is called once per frame
 	void Update() {
 		// Move Left
+
 		if (Input.GetButtonDown("Left")) {
 			// Modify position
 			transform.position += new Vector3(-1, 0, 0);
@@ -63,6 +64,7 @@ public class Group : MonoBehaviour {
 		}
 		
 		// Move Right
+
 		else if (Input.GetButtonDown("Right")) {
 			// Modify position
 			transform.position += new Vector3(1, 0, 0);
@@ -77,6 +79,7 @@ public class Group : MonoBehaviour {
 		}
 		
 		// Rotate
+
 		else if (Input.GetButtonDown("Rotate")) {
 			transform.Rotate(0, 0, -90);
 			
@@ -90,6 +93,7 @@ public class Group : MonoBehaviour {
 		}
 		
 		// Move Downwards and Fall
+
 		else if (Input.GetButton("Drop") ||
 		         Time.time - lastFall >= 1) {
 			// Modify position
