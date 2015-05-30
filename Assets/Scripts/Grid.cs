@@ -4,7 +4,7 @@ using System.Collections;
 public class Grid : MonoBehaviour {
 	// 24 x 12 dimension grid
 	public static int w = 24;
-	public static int h = 12;
+	public static int h = 30;
 	public static Transform[,] grid = new Transform[w, h];
 
 	public static Vector2 roundVec2(Vector2 v) { // rounding
