@@ -9,7 +9,7 @@ public class Spawner : MonoBehaviour {
 	public void spawnNext() {
 		// Random Index
 		int i = Random.Range(0, groups.Length);
-		
+
 		// Spawn Group at current Position
 		Instantiate(groups[i],
 		            transform.position,
