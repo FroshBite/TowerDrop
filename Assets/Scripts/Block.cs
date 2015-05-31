@@ -47,11 +47,10 @@ public class Block : MonoBehaviour {
 	}
 
 	void OnCollisionEnter2D (Collision2D col){
-		print (col.gameObject.tag);
-		if(col.gameObject.tag == "Enemy Weakness"){
-			col.gameObject.GetComponent<Enemy>().takeDamage(damageGiven);
+
+		if (col.collider == col.gameObject.GetComponent<Enemy> ().head) {
+			col.gameObject.GetComponent<Enemy> ().takeDamage (damageGiven);
 		}
-		
 	}
 
 }

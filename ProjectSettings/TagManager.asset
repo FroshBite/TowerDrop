@@ -23,8 +23,8 @@ TagManager:
   - Block
   - Group
   - Bullet
-  - 
-  - 
+  - Enemy
+  - Enemy_child
   - 
   - 
   - 

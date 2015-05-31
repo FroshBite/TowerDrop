@@ -9,6 +9,9 @@ public class Enemy : MonoBehaviour  {
 	public float gravity;
 	public int jumpHeight;
 
+	public BoxCollider2D head;
+	public BoxCollider2D body;
+
 	new Rigidbody2D rigidbody;
 	float timeColliding=0;
 	
@@ -41,11 +44,14 @@ public class Enemy : MonoBehaviour  {
 		isDestroyed ();
 	}
 
-	void OnCollisionStay2D(Collision2D col) { //When an enemy collides with a block
+	void OnCollisionStay2D(Collision2D col) {
+		//When an enemy collides with a block
+
 		if(col.gameObject.tag == "Box" && Time.realtimeSinceStartup-timeColliding>=attackTimeout){
 			col.gameObject.GetComponent<CannonClass>().takeDamage(damageGiven);
 			timeColliding=Time.realtimeSinceStartup;
 		}
+
 		if(col.gameObject.tag == "Block" && Time.realtimeSinceStartup-timeColliding>=attackTimeout){
 			col.gameObject.GetComponent<Block>().takeDamage(damageGiven);
 			timeColliding=Time.realtimeSinceStartup;

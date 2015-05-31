@@ -31,12 +31,11 @@ public class Spawner : MonoBehaviour {
 		// Random Index
 		int rollForGlory = Random.Range (75, 99);
 		if (rollForGlory > 90) {
-			int i = Random.Range (0, specials.Length);
+			int i = Random.Range (0, specials.Length-1);
 			addToGroupQueue (specials[i]);
 		}
 		else{
-			int i = Random.Range (0, groups.Length);
-			Debug.Log (i);
+			int i = Random.Range (0, groups.Length-1);
 			addToGroupQueue (groups[i]);	
 		}	
 	}
