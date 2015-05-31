@@ -9,8 +9,9 @@ public class Block : MonoBehaviour {
 	void destroy(){
 		int x = (int)this.gameObject.transform.position.x;
 		int y = (int)this.gameObject.transform.position.y;;
-		Grid.decreaseRowsAbove(x, y);
+		Grid.decreaseColumns(x, y);
 		Destroy(this.gameObject);
+		Grid.grid[x, y] = null;
 	}
 
 	bool isDestroyed(){ 

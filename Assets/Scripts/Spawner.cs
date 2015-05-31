@@ -32,7 +32,7 @@ public class Spawner : MonoBehaviour {
 
 	public void generateQueueObject(){
 		// Random Index
-		int rollForGlory = Random.Range (80, 99);
+		int rollForGlory = Random.Range (80, 99); // for testing reasons, leave the left bound really high for higher specials drop
 		if (rollForGlory > 90) {
 			int i = Random.Range (0, specials.Length);
 			addToGroupQueue (specials[i]);
