@@ -135,6 +135,20 @@ public class Group : MonoBehaviour {
 				
 				// Disable script
 				enabled = false;
+
+				//changes the health of all of its blocks to its actual health
+				for(int i=0;i<transform.childCount;i++){
+					if(transform.GetChild(i).tag=="Block"){
+						transform.GetChild(i).GetComponent<Block>().setActualHealth();
+					}
+					else if(transform.GetChild(i).tag=="Box"){
+						transform.GetChild(i).GetComponent<CannonClass>().setActualHealth();
+					}
+					
+					//transform.GetChild(i).GetComponent<CannonClass>().setActualHealth();
+				}
+
+
 				//gameObject.GetComponent<Rigidbody2D>().isKinematic = false;
 			}
 			

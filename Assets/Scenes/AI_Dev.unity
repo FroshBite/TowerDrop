@@ -124,7 +124,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 441344, guid: f38e683f84f6f56499282667ca3176a2, type: 2}
       propertyPath: m_RootOrder
-      value: 5
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f38e683f84f6f56499282667ca3176a2, type: 2}
@@ -250,7 +250,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 457588, guid: d6cf1d77c277f5c4f92e856431a263ea, type: 2}
       propertyPath: m_RootOrder
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 11431512, guid: d6cf1d77c277f5c4f92e856431a263ea, type: 2}
       propertyPath: queueSpot

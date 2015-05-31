@@ -9,6 +9,12 @@ public class CannonClass : MonoBehaviour {
 	public float bullet_offset;
 	public int health;
 
+	int actualHealth=10000000;
+
+	public void setActualHealth(){
+		actualHealth = health;
+	}
+
 	int i = 0;
 
 
@@ -57,15 +63,14 @@ public class CannonClass : MonoBehaviour {
 
 	void destroy(){
 		int x = (int)this.gameObject.transform.position.x;
-		int y = (int)this.gameObject.transform.position.y;
-		Debug.Log (x);
-		Debug.Log (y);
+		int y = (int)this.gameObject.transform.position.y;;
 		Grid.decreaseColumns(x, y);
 		Destroy(this.gameObject);
+		Grid.grid[x, y] = null;
 	}
 
 	bool isDestroyed(){ //checks if the block was destroyed
-		if (health <= 0) {
+		if (actualHealth <= 0) {
 			GameObject obj = GameObject.Instantiate(deathAnimation);
 			obj.transform.position = this.transform.position;
 			destroy ();
@@ -77,7 +82,7 @@ public class CannonClass : MonoBehaviour {
 	public void takeDamage(int ammount){ 
 		//damages the current object
 		if (ammount > 0) {
-			health -= ammount;
+			actualHealth -= ammount;
 		}
 		isDestroyed ();
 	}

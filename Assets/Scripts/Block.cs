@@ -6,6 +6,11 @@ public class Block : MonoBehaviour {
 	public int damageGiven=15;
 	public GameObject deathAnimation;
 
+	int actualHealth=1000000;
+
+	public void setActualHealth(){
+		actualHealth = health;
+	}
 	void destroy(){
 		int x = (int)this.gameObject.transform.position.x;
 		int y = (int)this.gameObject.transform.position.y;;
@@ -17,7 +22,7 @@ public class Block : MonoBehaviour {
 	bool isDestroyed(){ 
 		//checks if the block was destroyed
 
-		if (health <= 0) {
+		if (actualHealth <= 0) {
 			GameObject death = GameObject.Instantiate(deathAnimation);
 			death.transform.position = this.transform.position;
 			destroy ();
@@ -33,7 +38,7 @@ public class Block : MonoBehaviour {
 	public void takeDamage(int ammount){
 		//damages the current object
 		if (ammount > 0) {
-			health -= ammount;
+			actualHealth -= ammount;
 		}
 		isDestroyed ();
 	}
