@@ -48,16 +48,10 @@ public class BulletClass : MonoBehaviour {
 
 		//the cannon hits an enemy
 		if (col.gameObject.tag == "Enemy" ) {
-			if (col.collider == col.gameObject.GetComponent<Enemy>().head)
-				Debug.Log ("Head hit!");
-			if (col.collider == col.gameObject.GetComponent<Enemy>().body)
-				Debug.Log ("Body hit!");
-			else
-				Debug.Log ("????");
 			col.gameObject.GetComponent<Enemy>().takeDamage(damageGiven);
 		}
 
-		Destroy (this.gameObject);
+		destroy ();
 
 	}
 
