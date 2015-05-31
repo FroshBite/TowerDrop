@@ -11,7 +11,7 @@ public class EnemySpawn : MonoBehaviour {
 	//timers
 	private int packTimer =0;
 	private int mobTimer = 0;
-	private int packBuffer = 30;
+	public int packBuffer = 30;
 	private int mobBuffer = 30;
 
 	//Switch determines whether a wave is spawned or not
