@@ -4,6 +4,12 @@ using System.Collections;
 public class Group : MonoBehaviour {
 	// Time since last gravity tick
 	float lastFall = 0;
+	float lastPressLeft=0;
+	float lastPressRight=0;
+
+	bool heldLeft=false;
+	bool heldRight=false;
+
 
 	bool isValidGridPos() {        
 		foreach (Transform child in transform) {
@@ -49,7 +55,8 @@ public class Group : MonoBehaviour {
 	// Update is called once per frame
 	void Update() {
 		// Move Left
-		if (Input.GetKeyDown(KeyCode.LeftArrow)) {
+
+		if (Input.GetButtonDown("Left")) {
 			// Modify position
 			transform.position += new Vector3(-1, 0, 0);
 			
@@ -60,10 +67,17 @@ public class Group : MonoBehaviour {
 			else {
 				transform.position += new Vector3(1, 0, 0);
 			}
+
+			lastPressLeft=Time.time;
+			heldLeft=true;
 		}
-		
+
+		else if(Input.GetButtonUp("Left")){
+			heldLeft=false;
+		}
 		// Move Right
-		else if (Input.GetKeyDown(KeyCode.RightArrow)) {
+
+		else if (Input.GetButtonDown("Right")) {
 			// Modify position
 			transform.position += new Vector3(1, 0, 0);
 			
@@ -74,10 +88,17 @@ public class Group : MonoBehaviour {
 			else {
 				transform.position += new Vector3(-1, 0, 0);
 			}
+
+			lastPressRight=Time.time;
+			heldRight=true;
 		}
-		
+
+		else if(Input.GetButtonUp("Right")){
+			heldRight=false;
+		}
 		// Rotate
-		else if (Input.GetKeyDown(KeyCode.UpArrow)) {
+
+		else if (Input.GetButtonDown("Rotate")) {
 			transform.Rotate(0, 0, -90);
 			
 			// See if valid
@@ -90,7 +111,8 @@ public class Group : MonoBehaviour {
 		}
 		
 		// Move Downwards and Fall
-		else if (Input.GetKeyDown(KeyCode.DownArrow) ||
+
+		else if (Input.GetButton("Drop") ||
 		         Time.time - lastFall >= 1) {
 			// Modify position
 			transform.position += new Vector3(0, -1, 0);
@@ -113,6 +135,32 @@ public class Group : MonoBehaviour {
 			}
 			
 			lastFall = Time.time;
+		}
+
+		else if(Input.GetButton ("Left") && (heldLeft==true&&Time.time-lastPressLeft>=0.3)){
+			// Modify position
+			transform.position += new Vector3(-1, 0, 0);
+			
+			// See if valid
+			if (isValidGridPos()) {
+				updateGrid();
+			}
+			else {
+				transform.position += new Vector3(1, 0, 0);
+			}
+		}
+		
+		else if(Input.GetButton ("Right") && (heldRight==true&&Time.time-lastPressRight>=0.3)){
+			// Modify position
+			transform.position += new Vector3(1, 0, 0);
+			
+			// See if valid
+			if (isValidGridPos()){
+				updateGrid();
+			}
+			else {
+				transform.position += new Vector3(-1, 0, 0);
+			}
 		}
 	}
 }

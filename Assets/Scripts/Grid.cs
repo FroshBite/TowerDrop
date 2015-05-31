@@ -4,7 +4,7 @@ using System.Collections;
 public class Grid : MonoBehaviour {
 	// 24 x 12 dimension grid
 	public static int w = 24;
-	public static int h = 12;
+	public static int h = 50;
 	public static Transform[,] grid = new Transform[w, h];
 
 	public static Vector2 roundVec2(Vector2 v) { // rounding
@@ -17,8 +17,10 @@ public class Grid : MonoBehaviour {
 
 	public static void deleteRow(int y) { // block destroy loop in a row
 		for (int x = 0; x < w; ++x) {
-			Destroy(grid[x, y].gameObject);
-			grid[x, y] = null;
+			if (grid [x, y] != null){
+				Destroy(grid[x, y].gameObject);
+				grid[x, y] = null;
+			}
 		}
 	}
 
