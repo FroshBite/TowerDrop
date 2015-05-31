@@ -2,11 +2,7 @@
 using System.Collections;
 
 public class Block : MonoBehaviour {
-<<<<<<< HEAD
 	public int health=5;
-=======
-	public int health;
->>>>>>> 0bb5de2943372a8a6aee74b81396e53d0b5f20fa
 	public GameObject deathAnimation;
 
 	void destroy(){

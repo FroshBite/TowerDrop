@@ -2,7 +2,7 @@
 using System.Collections;
 
 public class Grid : MonoBehaviour {
-	// 24 x 12 dimension grid
+	// 24 x (abritrary height) dimension grid
 	public static int w = 24;
 	public static int h = 50;
 	public static Transform[,] grid = new Transform[w, h];
