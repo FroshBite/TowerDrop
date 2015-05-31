@@ -13,7 +13,6 @@ public class Spawner : MonoBehaviour {
 
 	//Preview Location
 	private Vector3 location = new Vector3 (25,0,0);
-	private Transform lTransform;
 
 	public void spawnNext() {
 		initNextGroup ();
@@ -50,12 +49,12 @@ public class Spawner : MonoBehaviour {
 	}
 
 	//Used to instantitate previews
-	public void changePreview(){
-		lTransform.position = location;
-		Instantiate(checkNextGroup (),
-		            lTransform.position,
-		            Quaternion.identity);
-	}
+//	public void changePreview(){
+//		staticGrid.position = location;
+//		Instantiate(checkNextGroup (),
+//		            staticGrid.position,
+//		            Quaternion.identity);
+//	}
 
 	void Start() {
 		// Initial function called
