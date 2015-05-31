@@ -135,6 +135,13 @@ public class Group : MonoBehaviour {
 				
 				// Disable script
 				enabled = false;
+
+				//changes the health of all of its blocks to its actual health
+				for(int i=0;i<transform.childCount;i++){
+					transform.GetChild(i).GetComponent<Block>().setActualHealth();;
+				}
+
+
 				//gameObject.GetComponent<Rigidbody2D>().isKinematic = false;
 			}
 			
