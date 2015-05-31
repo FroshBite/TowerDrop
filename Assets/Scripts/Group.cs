@@ -114,6 +114,7 @@ public class Group : MonoBehaviour {
 				
 				// Disable script
 				enabled = false;
+
 			}
 			
 			lastFall = Time.time;

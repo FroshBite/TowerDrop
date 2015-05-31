@@ -17,7 +17,6 @@ public class CannonClass : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-
 		// Every second, shoot a bullet
 		i ++;
 		if (i >= shoot_rate) {
@@ -36,9 +35,6 @@ public class CannonClass : MonoBehaviour {
 	
 	void OnCollisionEnter2D (Collision2D col){
 
-		Debug.Log ("Collision with");
-		Debug.Log (col.gameObject.tag);
-		
 		if (col.gameObject.tag == "Bullet") {
 			health -= 1;
 			if (health <= 0){

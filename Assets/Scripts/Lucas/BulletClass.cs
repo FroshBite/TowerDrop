@@ -33,7 +33,7 @@ public class BulletClass : MonoBehaviour {
 		Debug.Log ("Collision with");
 		Debug.Log (col.gameObject.tag);
 
-		if (col.gameObject.tag == "Box") {
+		if (col.gameObject.tag == "Box" || col.gameObject.tag == "Block") {
 			Destroy(this.gameObject);
 		}
 
