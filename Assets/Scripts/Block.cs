@@ -2,15 +2,15 @@
 using System.Collections;
 
 public class Block : MonoBehaviour {
-	public static int health=5;
+	public int health=5;
 	public GameObject deathAnimation;
 
 	void destroy(){
-		int x = (int)this.gameObject.transform.position.x;
+		/*int x = (int)this.gameObject.transform.position.x;
 		int y = (int)this.gameObject.transform.position.y;
 		Debug.Log (x);
 		Debug.Log (y);
-		Grid.decreaseRowsAbove(x, y);
+		Grid.decreaseRowsAbove(x, y);*/
 		Destroy(this.gameObject);
 	}
 	bool isDestroyed(){ 
@@ -26,7 +26,8 @@ public class Block : MonoBehaviour {
 		return false;
 	}
 
-	public void takeDamage(int ammount){ 
+	public void takeDamage(int ammount){
+		print (health);
 		//damages the current object
 		if (ammount > 0) {
 			health -= ammount;
