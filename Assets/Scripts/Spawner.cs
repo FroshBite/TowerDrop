@@ -22,7 +22,6 @@ public class Spawner : MonoBehaviour {
 			             transform.position,
 			             Quaternion.identity);
 		}
-
 	}
 
 	void Start() {
