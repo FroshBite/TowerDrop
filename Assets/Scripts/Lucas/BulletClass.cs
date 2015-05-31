@@ -34,10 +34,6 @@ public class BulletClass : MonoBehaviour {
 	void OnCollisionEnter2D (Collision2D col){
 		Debug.Log ("Collision with "+col.gameObject.tag);
 
-		//the bullet hits a block, destroy it 
-		if (col.gameObject.tag == "Block") {
-		}
-
 		//the box tag is other canons
 		if (col.gameObject.tag == "Box") {
 			col.gameObject.GetComponent<CannonClass>().takeDamage(damageGiven);
@@ -47,6 +43,7 @@ public class BulletClass : MonoBehaviour {
 		if (col.gameObject.tag == "Enemy" ) {
 			col.gameObject.GetComponent<Enemy>().takeDamage(damageGiven);
 		}
+
 		Destroy (this.gameObject);
 
 	}

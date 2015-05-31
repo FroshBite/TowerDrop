@@ -8,6 +8,7 @@ public class Block : MonoBehaviour {
 	void destroy(){
 		Destroy(this.gameObject);
 	}
+
 	bool isDestroyed(){ 
 		//checks if the block was destroyed
 
