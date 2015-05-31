@@ -48,6 +48,7 @@ MonoBehaviour:
   - {fileID: 103432, guid: c99fd4b27a231354eb25c1b09af51d99, type: 2}
   - {fileID: 186522, guid: 5d440913d5b711043b9d4c0004b0416e, type: 2}
   specials: []
+  queueSpot: {fileID: 180174, guid: f38e683f84f6f56499282667ca3176a2, type: 2}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
