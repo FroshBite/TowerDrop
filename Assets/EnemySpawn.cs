@@ -11,7 +11,7 @@ public class EnemySpawn : MonoBehaviour {
 	//timers
 	private int packTimer =0;
 	private int mobTimer = 0;
-	private int packBuffer = 500;
+	private int packBuffer = 30;
 	private int mobBuffer = 30;
 
 	//Switch determines whether a wave is spawned or not
@@ -24,21 +24,26 @@ public class EnemySpawn : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if (packTimer == packBuffer) {
-			spawnMode=true;
-			packTimer=0;
-		}
-		if(mobTimer==mobBuffer&&packSize==0){
-			spawnMode = true;
-			mobTimer = 0;
-		}else if(mobTimer==mobBuffer&&packSize>=0){
-			createMob();
-		}
-
 		if (spawnMode == false) {
 			packTimer++;
 		} else {
 			mobTimer++;
+		}
+
+		if (mobTimer == mobBuffer&&packSize>=0) {
+			mobTimer=0;
+			createMob();
+			packSize--;
+		}
+
+		if (packSize == 0) {
+			spawnMode=false;
+			packSize=1;
+		}
+
+		if(packTimer==packBuffer){
+			packTimer=0;
+			spawnMode=true;
 		}
 
 	}
