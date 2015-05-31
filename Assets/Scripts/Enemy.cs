@@ -8,6 +8,8 @@ public class Enemy : MonoBehaviour  {
 	public int health;
 	public float gravity;
 	public int jumpHeight;
+	public GameObject deathAnimation;
+
 
 	public BoxCollider2D head;
 	public BoxCollider2D body;
@@ -27,7 +29,11 @@ public class Enemy : MonoBehaviour  {
 	}
 
 	void destroy(){ //destroys the current object
+		GameObject death = GameObject.Instantiate (deathAnimation);
 		Destroy(this.gameObject);
+		Vector3 pos = this.transform.position;
+		death.transform.position = pos;
+
 	}
 
 	bool isDestroyed(){ //checks if the block was destroyed

@@ -1,6 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
-
 --- !u!1 &121466
 GameObject:
   m_ObjectHideFlags: 0
@@ -162,9 +161,10 @@ MonoBehaviour:
   speed: 2
   damageGiven: 10
   attackTimeout: 5
-  health: 1000
+  health: 10
   gravity: 10
   jumpHeight: 0
+  deathAnimation: {fileID: 105918, guid: 277341817a811454bbd5e1c1f2c6857f, type: 2}
   head: {fileID: 6183642}
   body: {fileID: 6145008}
 --- !u!212 &21272222
@@ -193,7 +193,6 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300002, guid: d2320be5d3075364c83df78708bed589, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 0
