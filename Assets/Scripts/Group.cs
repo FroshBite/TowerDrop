@@ -138,7 +138,14 @@ public class Group : MonoBehaviour {
 
 				//changes the health of all of its blocks to its actual health
 				for(int i=0;i<transform.childCount;i++){
-					transform.GetChild(i).GetComponent<Block>().setActualHealth();;
+					if(transform.GetChild(i).tag=="Block"){
+						transform.GetChild(i).GetComponent<Block>().setActualHealth();
+					}
+					else if(transform.GetChild(i).tag=="Box"){
+						transform.GetChild(i).GetComponent<CannonClass>().setActualHealth();
+					}
+					
+					//transform.GetChild(i).GetComponent<CannonClass>().setActualHealth();
 				}
 
 

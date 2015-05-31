@@ -12,6 +12,7 @@ TagManager:
   - Enemy Weakness
   - Enemy Attack
   - Explosion
+  - Background
   layers:
   - Default
   - TransparentFX
