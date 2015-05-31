@@ -3,7 +3,7 @@ using System.Collections;
 
 public class Block : MonoBehaviour {
 	public int health=5;
-
+	public int damageGiven=15;
 	public GameObject deathAnimation;
 
 	void destroy(){
@@ -47,8 +47,10 @@ public class Block : MonoBehaviour {
 	}
 
 	void OnCollisionEnter2D (Collision2D col){
-				
-		takeDamage (3);
+		print (col.gameObject.tag);
+		if(col.gameObject.tag == "Enemy Weakness"){
+			col.gameObject.GetComponent<Enemy>().takeDamage(damageGiven);
+		}
 		
 	}
 
