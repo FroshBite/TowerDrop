@@ -7,7 +7,10 @@ public class Spawner : MonoBehaviour {
 	public GameObject[] groups;
 	public GameObject[] specials;
 	public GameObject queueSpot;
+	public GameObject enemy;
+
 	private Vector3 queuePosition;
+
 	//Queue
 	private Queue qBlocks = new Queue();
 	private const byte QUEUE_LENGTH = 5;
@@ -66,6 +69,11 @@ public class Spawner : MonoBehaviour {
 		generateQueueObject ();
 		spawnNext();
 		queuePosition = queueSpot.transform.position;
+
+		GameObject skeleton = GameObject.Instantiate (enemy);
+		Vector3 pos = new Vector3 (1.5775f, 0.8206f, 0f);
+
+		skeleton.transform.position = pos;
 	}
 
 	void Update() {

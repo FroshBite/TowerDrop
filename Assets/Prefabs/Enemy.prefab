@@ -159,9 +159,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 2
-  damageGiven: 5
+  damageGiven: 10
   attackTimeout: 5
-  health: 10
+  health: 1000
   gravity: 10
   jumpHeight: 0
   head: {fileID: 6183642}

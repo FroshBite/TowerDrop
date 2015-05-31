@@ -63,7 +63,6 @@ GameObject:
   m_Component:
   - 4: {fileID: 437212}
   - 114: {fileID: 11472862}
-  - 50: {fileID: 5055330}
   m_Layer: 9
   m_Name: GroupS
   m_TagString: Group
@@ -153,21 +152,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 437212}
   m_RootOrder: 0
---- !u!50 &5055330
-Rigidbody2D:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 165450}
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: .0500000007
-  m_GravityScale: 1
-  m_FixedAngle: 1
-  m_IsKinematic: 1
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
 --- !u!61 &6132534
 BoxCollider2D:
   m_ObjectHideFlags: 1
@@ -232,6 +216,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 5
+  damageGiven: 15
   deathAnimation: {fileID: 110656, guid: e8ed31842b5944c90bc11ff18f93a9eb, type: 2}
 --- !u!114 &11445268
 MonoBehaviour:
@@ -245,6 +230,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 5
+  damageGiven: 15
   deathAnimation: {fileID: 110656, guid: e8ed31842b5944c90bc11ff18f93a9eb, type: 2}
 --- !u!114 &11454266
 MonoBehaviour:
@@ -258,6 +244,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 5
+  damageGiven: 15
   deathAnimation: {fileID: 110656, guid: e8ed31842b5944c90bc11ff18f93a9eb, type: 2}
 --- !u!114 &11472862
 MonoBehaviour:
@@ -282,6 +269,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 5
+  damageGiven: 15
   deathAnimation: {fileID: 110656, guid: e8ed31842b5944c90bc11ff18f93a9eb, type: 2}
 --- !u!212 &21207502
 SpriteRenderer:

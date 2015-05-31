@@ -44,17 +44,27 @@ public class Enemy : MonoBehaviour  {
 		isDestroyed ();
 	}
 
+	void OnCollisionEnter2D(Collision2D col) {
+		Debug.Log ("Collider is");
+		Debug.Log (col.gameObject.tag);
+		if (col.gameObject.tag == "Explosion") {
+			GetComponent<Animator> ().SetBool ("IsFighting", false);
+		} else if (col.gameObject.tag == "Block") {
+			GetComponent<Animator> ().SetBool ("IsFighting", true);
+		}
+	}
 	void OnCollisionStay2D(Collision2D col) {
 		//When an enemy collides with a block
-
 		if(col.gameObject.tag == "Box" && Time.realtimeSinceStartup-timeColliding>=attackTimeout){
 			col.gameObject.GetComponent<CannonClass>().takeDamage(damageGiven);
 			timeColliding=Time.realtimeSinceStartup;
+			GetComponent<Animator> ().SetBool ("IsFighting", true);
 		}
 
 		if(col.gameObject.tag == "Block" && Time.realtimeSinceStartup-timeColliding>=attackTimeout){
-			col.gameObject.GetComponent<Block>().takeDamage(damageGiven);
+			col.gameObject.GetComponent<Block>().takeDamage(damageGiven, this.gameObject);
 			timeColliding=Time.realtimeSinceStartup;
+			GetComponent<Animator> ().SetBool ("IsFighting", true);
 		}
 	}
 }

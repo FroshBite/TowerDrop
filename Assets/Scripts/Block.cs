@@ -15,26 +15,28 @@ public class Block : MonoBehaviour {
 		Destroy(this.gameObject);
 	}
 
-	bool isDestroyed(){ 
+	bool isDestroyed(GameObject enemy){ 
 		//checks if the block was destroyed
 
 		if (health <= 0) {
 			GameObject death = GameObject.Instantiate(deathAnimation);
 			death.transform.position = this.transform.position;
 			destroy ();
+
+
 			return true;
 		}
 
 		return false;
 	}
 
-	public void takeDamage(int ammount){
+	public void takeDamage(int ammount, GameObject enemy){
 		print (health);
 		//damages the current object
 		if (ammount > 0) {
 			health -= ammount;
 		}
-		isDestroyed ();
+		isDestroyed (enemy);
 	}
 
 	// Use this for initialization
