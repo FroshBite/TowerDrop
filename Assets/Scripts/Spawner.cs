@@ -8,18 +8,18 @@ public class Spawner : MonoBehaviour {
 	public GameObject[] specials;
 
 	//Queue
-	private Queue qBlocks;
+	private Queue qBlocks = new Queue();
 	private const byte QUEUE_LENGTH = 5;
 
 	//Preview Location
-	private Vector3 location = new Vector3 (24,24,0);
+	private Vector3 location = new Vector3 (25,0,0);
 	private Transform lTransform;
 
 	public void spawnNext() {
 		initNextGroup ();
 	}
 
-	private void addToGroupQueue(GameObject[] group){
+	private void addToGroupQueue(GameObject group){
 		if (qBlocks.Count < QUEUE_LENGTH) {
 			qBlocks.Enqueue (group);
 		}
@@ -39,14 +39,14 @@ public class Spawner : MonoBehaviour {
 	}
 	
 	private void initNextGroup(){
-		Instantiate (qBlocks.Dequeue (),
+		Instantiate ((GameObject)qBlocks.Dequeue(),
 			            transform.position,
 			            Quaternion.identity);
 	}
 
 	//Used for previews. Checks next queue item without removing it from the queue
-	public Object checkNextGroup(){
-		return qBlocks.Peek;
+	public GameObject checkNextGroup(){
+		return (GameObject)qBlocks.Peek();
 	}
 
 	//Used to instantitate previews

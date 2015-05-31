@@ -10,7 +10,7 @@ public class Group : MonoBehaviour {
 	bool heldLeft=false;
 	bool heldRight=false;
 
-	Object spawner = Object.FindObjectOfType<Spawner>();
+	Spawner spawner = null;
 
 	bool isValidGridPos() {        
 		foreach (Transform child in transform) {
@@ -46,6 +46,7 @@ public class Group : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+		spawner = FindObjectOfType<Spawner> ();
 		// if the default position isn't even valid, game is lose
 		if (!isValidGridPos()) {
 			Debug.Log("GAME OVER");
@@ -130,7 +131,7 @@ public class Group : MonoBehaviour {
 				
 				// Spawn next Group
 				spawner.spawnNext();
-				spawner.changePreview();
+//				spawner.changePreview();
 				
 				// Disable script
 				enabled = false;
@@ -166,6 +167,6 @@ public class Group : MonoBehaviour {
 			}
 		}
 		spawner.generateQueueObject ();
-		spawner.changePreview ();
+//		spawner.changePreview ();
 	}
 }

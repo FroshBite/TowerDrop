@@ -6,6 +6,7 @@ public class Grid : MonoBehaviour {
 	public static int w = 24;
 	public static int h = 50;
 	public static Transform[,] grid = new Transform[w, h];
+	public static Transform[,] staticGrid = new Transform[w,h];
 
 	public static Vector2 roundVec2(Vector2 v) { // rounding
 		return new Vector2(Mathf.Round(v.x), Mathf.Round(v.y));
