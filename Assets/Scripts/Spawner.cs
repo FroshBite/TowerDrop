@@ -22,4 +22,13 @@ public class Spawner : MonoBehaviour {
 		spawnNext();
 	}
 
+	void Update() {
+		if (Input.GetButtonDown ("Reset")) {
+			for (int x = 0; x < Grid.h; x++){
+				Grid.deleteRow (x);
+			}
+			spawnNext ();
+		}
+	}
+	
 }

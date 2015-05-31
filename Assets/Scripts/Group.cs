@@ -4,6 +4,12 @@ using System.Collections;
 public class Group : MonoBehaviour {
 	// Time since last gravity tick
 	float lastFall = 0;
+	float lastPressLeft=0;
+	float lastPressRight=0;
+
+	bool heldLeft=false;
+	bool heldRight=false;
+
 
 	bool isValidGridPos() {        
 		foreach (Transform child in transform) {
@@ -61,8 +67,14 @@ public class Group : MonoBehaviour {
 			else {
 				transform.position += new Vector3(1, 0, 0);
 			}
+
+			lastPressLeft=Time.time;
+			heldLeft=true;
 		}
-		
+
+		else if(Input.GetButtonUp("Left")){
+			heldLeft=false;
+		}
 		// Move Right
 
 		else if (Input.GetButtonDown("Right")) {
@@ -76,8 +88,14 @@ public class Group : MonoBehaviour {
 			else {
 				transform.position += new Vector3(-1, 0, 0);
 			}
+
+			lastPressRight=Time.time;
+			heldRight=true;
 		}
-		
+
+		else if(Input.GetButtonUp("Right")){
+			heldRight=false;
+		}
 		// Rotate
 
 		else if (Input.GetButtonDown("Rotate")) {
@@ -118,6 +136,32 @@ public class Group : MonoBehaviour {
 			}
 			
 			lastFall = Time.time;
+		}
+
+		else if(Input.GetButton ("Left") && (heldLeft==true&&Time.time-lastPressLeft>=0.3)){
+			// Modify position
+			transform.position += new Vector3(-1, 0, 0);
+			
+			// See if valid
+			if (isValidGridPos()) {
+				updateGrid();
+			}
+			else {
+				transform.position += new Vector3(1, 0, 0);
+			}
+		}
+		
+		else if(Input.GetButton ("Right") && (heldRight==true&&Time.time-lastPressRight>=0.3)){
+			// Modify position
+			transform.position += new Vector3(1, 0, 0);
+			
+			// See if valid
+			if (isValidGridPos()){
+				updateGrid();
+			}
+			else {
+				transform.position += new Vector3(-1, 0, 0);
+			}
 		}
 	}
 }
