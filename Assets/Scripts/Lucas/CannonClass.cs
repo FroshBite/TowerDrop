@@ -17,7 +17,6 @@ public class CannonClass : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-
 		// Every second, shoot a bullet
 		i ++;
 		if (i >= shoot_rate) {

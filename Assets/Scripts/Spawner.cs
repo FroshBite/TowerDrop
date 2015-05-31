@@ -9,7 +9,7 @@ public class Spawner : MonoBehaviour {
 	public void spawnNext() {
 		// Random Index
 		int i = Random.Range(0, groups.Length);
-		
+
 		// Spawn Group at current Position
 		Instantiate(groups[i],
 		            transform.position,
@@ -22,4 +22,13 @@ public class Spawner : MonoBehaviour {
 		spawnNext();
 	}
 
+	void Update() {
+		if (Input.GetButtonDown ("Reset")) {
+			for (int x = 0; x < Grid.h; x++){
+				Grid.deleteRow (x);
+			}
+			spawnNext ();
+		}
+	}
+	
 }

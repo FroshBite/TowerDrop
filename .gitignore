@@ -13,6 +13,12 @@
 /*.pidb
 /*.booproj
 
+./**/Sprites.meta
+./**/Scenes.meta
+./**/Prefabs.meta
+./**/Scripts.meta
+./**/ProjectVersion.txt
+
 #Unity3D Generated File On Crash Reports
 sysinfo.txt
 
@@ -46,6 +52,7 @@ Temporary Items
 
 # Windows image file caches
 Thumbs.db
+Thumbs.db.meta
 ehthumbs.db
 
 # Folder config file
