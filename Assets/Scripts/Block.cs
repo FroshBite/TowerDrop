@@ -9,16 +9,15 @@ public class Block : MonoBehaviour {
 	bool isDestroyed(){ //checks if the block was destroyed
 		if (health <= 0) {
 			destroy ();
-			print ("Object Destroyed");
 			return true;
 		}
 		return false;
 	}
-	public void takeDamage(int ammount){
+	public void takeDamage(int ammount){ //damages the current object
 		if (ammount > 0) {
 			health -= ammount;
 		}
-		print ("Take Damage Called");
+		isDestroyed ();
 	}
 	// Use this for initialization
 	void Start () {
@@ -27,6 +26,5 @@ public class Block : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		isDestroyed ();
 	}
 }

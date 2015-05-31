@@ -33,21 +33,26 @@ public class CannonClass : MonoBehaviour {
 		pos.x -= bullet_offset;
 		fired_bullet.transform.position = pos;
 	}
+	void destroy(){
+		Destroy (this.gameObject);
+	}
 	
+	bool isDestroyed(){
+		if (health <= 0) {
+			destroy ();
+			return true;
+		}
+		return false;
+	}
+
+	public void takeDamage(int ammount){
+		if (ammount > 0) {
+			health -= ammount;
+		}
+		isDestroyed ();
+	}
 	void OnCollisionEnter2D (Collision2D col){
 
-		Debug.Log ("Collision with");
-		Debug.Log (col.gameObject.tag);
-		
-		if (col.gameObject.tag == "Bullet") {
-			health -= 1;
-			if (health <= 0){
-				GameObject obj = GameObject.Instantiate(deathAnimation);
-				obj.transform.position = this.transform.position;
-				Destroy(gameObject);
-			}
-		}
-		
 	}
 
 }
