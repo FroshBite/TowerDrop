@@ -36,8 +36,14 @@ public class CannonClass : MonoBehaviour {
 	}
 
 	void destroy(){
+		int x = (int)this.gameObject.transform.position.x;
+		int y = (int)this.gameObject.transform.position.y;
+		Debug.Log (x);
+		Debug.Log (y);
+		Grid.decreaseColumns(x, y);
 		Destroy(this.gameObject);
 	}
+
 	bool isDestroyed(){ //checks if the block was destroyed
 		if (health <= 0) {
 			GameObject obj = GameObject.Instantiate(deathAnimation);

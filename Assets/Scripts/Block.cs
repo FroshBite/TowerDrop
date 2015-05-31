@@ -2,20 +2,18 @@
 using System.Collections;
 
 public class Block : MonoBehaviour {
-	public int health=5;
+	public int health = 3;
 	public int damageGiven=15;
 	public GameObject deathAnimation;
 
 	void destroy(){
 		int x = (int)this.gameObject.transform.position.x;
-		int y = (int)this.gameObject.transform.position.y;
-		Debug.Log (x);
-		Debug.Log (y);
+		int y = (int)this.gameObject.transform.position.y;;
 		Grid.decreaseRowsAbove(x, y);
 		Destroy(this.gameObject);
 	}
 
-	bool isDestroyed(GameObject enemy){ 
+	bool isDestroyed(){ 
 		//checks if the block was destroyed
 
 		if (health <= 0) {
@@ -30,13 +28,13 @@ public class Block : MonoBehaviour {
 		return false;
 	}
 
-	public void takeDamage(int ammount, GameObject enemy){
-		print (health);
+
+	public void takeDamage(int ammount){
 		//damages the current object
 		if (ammount > 0) {
 			health -= ammount;
 		}
-		isDestroyed (enemy);
+		isDestroyed ();
 	}
 
 	// Use this for initialization
@@ -50,10 +48,11 @@ public class Block : MonoBehaviour {
 
 	void OnCollisionEnter2D (Collision2D col){
 
-		if ( col.gameObject.tag == "Enemy")
+		if (col.gameObject.tag == "Enemy") { //if the block collides with the enemy head
 			if (col.collider == col.gameObject.GetComponent<Enemy> ().head) {
 				col.gameObject.GetComponent<Enemy> ().takeDamage (damageGiven);
 			}
+		}
 	}
 
 }
