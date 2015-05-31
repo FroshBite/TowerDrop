@@ -134,6 +134,7 @@ public class Group : MonoBehaviour {
 				
 				// Disable script
 				enabled = false;
+				gameObject.GetComponent<Rigidbody2D>().isKinematic = false;
 			}
 			
 			lastFall = Time.time;
