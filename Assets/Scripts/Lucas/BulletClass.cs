@@ -36,6 +36,7 @@ public class BulletClass : MonoBehaviour {
 
 		//the bullet hits a block, destroy it 
 		if (col.gameObject.tag == "Block") {
+			col.gameObject.GetComponent<Block>().takeDamage(damageGiven);
 			destroy();
 		}
 
