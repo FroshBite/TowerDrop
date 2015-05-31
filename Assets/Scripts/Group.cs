@@ -10,6 +10,7 @@ public class Group : MonoBehaviour {
 	bool heldLeft=false;
 	bool heldRight=false;
 
+	Spawner spawner = null;
 
 	bool isValidGridPos() {        
 		foreach (Transform child in transform) {
@@ -45,6 +46,7 @@ public class Group : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+		spawner = FindObjectOfType<Spawner> ();
 		// if the default position isn't even valid, game is lose
 		if (!isValidGridPos()) {
 			Debug.Log("GAME OVER");
@@ -128,11 +130,12 @@ public class Group : MonoBehaviour {
 				Grid.deleteFullRows();
 				
 				// Spawn next Group
-				FindObjectOfType<Spawner>().spawnNext();
+				spawner.spawnNext();
+//				spawner.changePreview();
 				
 				// Disable script
 				enabled = false;
-				gameObject.GetComponent<Rigidbody2D>().isKinematic = false;
+				//gameObject.GetComponent<Rigidbody2D>().isKinematic = false;
 			}
 			
 			lastFall = Time.time;
@@ -163,5 +166,7 @@ public class Group : MonoBehaviour {
 				transform.position += new Vector3(-1, 0, 0);
 			}
 		}
+		spawner.generateQueueObject ();
+//		spawner.changePreview ();
 	}
 }
