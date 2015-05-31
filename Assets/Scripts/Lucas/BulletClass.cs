@@ -3,7 +3,7 @@ using System.Collections;
 
 public class BulletClass : MonoBehaviour {
 	public int damageGiven;
-
+	public Vector2 direction;
 
 	int i = 0;
 
@@ -14,16 +14,17 @@ public class BulletClass : MonoBehaviour {
 
 		if (i >= 4) {
 			i = 0;
-			MoveLeft();
+			Move();
 		}
 
 	}
 
-	void MoveLeft(){
+	void Move(){
 
 		// Move bullet left one position on the grid system
 		Vector3 position = transform.position;
-		position.x -= 1;
+		position.x += direction.x;
+		position.y += direction.y;
 		transform.position = position;
 
 		if (position.x < left_bound)

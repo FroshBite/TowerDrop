@@ -1,5 +1,5 @@
 ﻿using UnityEngine;
-using System.Collections;
+using System;
 
 public class CannonClass : MonoBehaviour {
 
@@ -31,8 +31,28 @@ public class CannonClass : MonoBehaviour {
 	void ShootBullet() {
 		GameObject fired_bullet = GameObject.Instantiate (bullet);
 		Vector3 pos = this.transform.position;
-		pos.x -= bullet_offset;
+		Vector2 xy  = GetOrientation ();
+		pos.x += xy.x;
+		pos.y += xy.y;
 		fired_bullet.transform.position = pos;
+		fired_bullet.GetComponent<BulletClass> ().direction = xy;
+	}
+
+	Vector2 GetOrientation() {
+		float direction = (float) Math.Abs ( Math.Round (transform.rotation.z, 1) );
+		Vector2 xy = new Vector2 (0, 0);
+
+		if (direction == 0) {
+			xy.x = -1;
+		} else if (direction == 1) {
+			xy.x = 1;
+		} else {
+			xy.y = 1;
+		}
+		
+		Debug.Log (direction);
+
+		return xy;
 	}
 
 	void destroy(){
