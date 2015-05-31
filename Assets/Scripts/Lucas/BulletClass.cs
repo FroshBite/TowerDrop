@@ -36,20 +36,18 @@ public class BulletClass : MonoBehaviour {
 
 		//the bullet hits a block, destroy it 
 		if (col.gameObject.tag == "Block") {
-			destroy();
 		}
 
 		//the box tag is other canons
 		if (col.gameObject.tag == "Box") {
 			col.gameObject.GetComponent<CannonClass>().takeDamage(damageGiven);
-			destroy();
 		}
 
 		//the canon hits an enemy
 		if (col.gameObject.tag == "Enemy" ) {
 			col.gameObject.GetComponent<Enemy>().takeDamage(damageGiven);
-			destroy();
 		}
+		Destroy (this.gameObject);
 
 	}
 
