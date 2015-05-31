@@ -36,12 +36,17 @@ public class BulletClass : MonoBehaviour {
 	void OnCollisionEnter2D (Collision2D col){
 
 
-		//the box tag is other canons
+		//the box tag is other cannons
+		if (col.gameObject.tag == "Block") {
+			col.gameObject.GetComponent<Block>().takeDamage(damageGiven);
+		}
+
+		//the box tag is other cannons
 		if (col.gameObject.tag == "Box") {
 			col.gameObject.GetComponent<CannonClass>().takeDamage(damageGiven);
 		}
 
-		//the canon hits an enemy
+		//the cannon hits an enemy
 		if (col.gameObject.tag == "Enemy" ) {
 			if (col.collider == col.gameObject.GetComponent<Enemy>().head)
 				Debug.Log ("Head hit!");

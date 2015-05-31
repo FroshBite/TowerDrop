@@ -2,7 +2,7 @@
 using System.Collections;
 
 public class Block : MonoBehaviour {
-	public int health=5;
+	public int health = 3;
 	public int damageGiven=15;
 	public GameObject deathAnimation;
 
