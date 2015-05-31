@@ -255,7 +255,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bullet: {fileID: 174760, guid: 279e922acae124378b9fe094bf195069, type: 2}
-  deathAnimation: {fileID: 198616, guid: 4a51f7f7f30234ba9bbd532074f8cc5e, type: 2}
+  deathAnimation: {fileID: 168102, guid: fafb4b57e875d4216b69da436536f134, type: 2}
   shoot_rate: 60
   bullet_offset: 2.5
   health: 3

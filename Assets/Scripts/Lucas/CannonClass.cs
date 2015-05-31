@@ -55,8 +55,6 @@ public class CannonClass : MonoBehaviour {
 		} else {
 			xy.y = 1;
 		}
-		
-		Debug.Log (direction);
 
 		return xy;
 	}
@@ -65,14 +63,18 @@ public class CannonClass : MonoBehaviour {
 		int x = (int)this.gameObject.transform.position.x;
 		int y = (int)this.gameObject.transform.position.y;;
 		Grid.decreaseColumns(x, y);
+
+	
 		Destroy(this.gameObject);
 		Grid.grid[x, y] = null;
 	}
 
 	bool isDestroyed(){ //checks if the block was destroyed
 		if (actualHealth <= 0) {
+			Debug.Log ("Instantiating Death ANimation");
 			GameObject obj = GameObject.Instantiate(deathAnimation);
 			obj.transform.position = this.transform.position;
+			Debug.Log (obj.transform.name);
 			destroy ();
 			return true;
 		}

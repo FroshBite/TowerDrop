@@ -51,8 +51,7 @@ public class Enemy : MonoBehaviour  {
 	}
 
 	void OnCollisionEnter2D(Collision2D col) {
-		Debug.Log ("Collider is");
-		Debug.Log (col.gameObject.tag);
+
 		if (col.gameObject.tag == "Explosion") {
 			GetComponent<Animator> ().SetBool ("IsFighting", false);
 		} else if (col.gameObject.tag == "Block") {
@@ -61,6 +60,7 @@ public class Enemy : MonoBehaviour  {
 	}
 	void OnCollisionStay2D(Collision2D col) {
 		//When an enemy collides with a block
+
 		if(col.gameObject.tag == "Box" && Time.realtimeSinceStartup-timeColliding>=attackTimeout){
 			col.gameObject.GetComponent<CannonClass>().takeDamage(damageGiven);
 			timeColliding=Time.realtimeSinceStartup;
