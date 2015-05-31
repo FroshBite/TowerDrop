@@ -33,6 +33,7 @@ public class Spawner : MonoBehaviour {
 		}
 		else{
 			int i = Random.Range (0, groups.Length);
+			Debug.Log (i);
 			addToGroupQueue (groups[i]);	
 		}	
 	}
