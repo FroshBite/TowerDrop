@@ -2,7 +2,7 @@
 using System.Collections;
 
 public class Block : MonoBehaviour {
-	public int health;
+	public static int health=5;
 	public GameObject deathAnimation;
 
 	void destroy(){
@@ -40,7 +40,7 @@ public class Block : MonoBehaviour {
 
 	void OnCollisionEnter2D (Collision2D col){
 				
-		takeDamage (3);
+		//takeDamage (3);
 		
 	}
 

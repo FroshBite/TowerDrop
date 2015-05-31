@@ -11,17 +11,6 @@ public class CannonClass : MonoBehaviour {
 
 	int i = 0;
 
-	public void takeDamage(int ammount){ 
-		//damages the current object
-		if (ammount > 0) {
-			health -= ammount;
-		} else {
-			GameObject obj = GameObject.Instantiate(deathAnimation);
-			obj.transform.position = this.transform.position;
-			Destroy(gameObject);
-		}
-	}
-	
 
 	// Use this for initialization
 	void Start () {
@@ -51,27 +40,20 @@ public class CannonClass : MonoBehaviour {
 	}
 	bool isDestroyed(){ //checks if the block was destroyed
 		if (health <= 0) {
+			GameObject obj = GameObject.Instantiate(deathAnimation);
+			obj.transform.position = this.transform.position;
 			destroy ();
 			return true;
 		}
 		return false;
 	}
 
-
-	void OnCollisionEnter2D (Collision2D col){
-
-		Debug.Log ("Collision with");
-		Debug.Log (col.gameObject.tag);
-		
-		if (col.gameObject.tag == "Bullet") {
-			health -= 1;
-			if (health <= 0){
-				GameObject obj = GameObject.Instantiate(deathAnimation);
-				obj.transform.position = this.transform.position;
-				Destroy(gameObject);
-			}
+	public void takeDamage(int ammount){ 
+		//damages the current object
+		if (ammount > 0) {
+			health -= ammount;
 		}
-		
+		isDestroyed ();
 	}
 
 }
