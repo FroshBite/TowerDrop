@@ -5,6 +5,7 @@ public class Enemy : MonoBehaviour  {
 	public float speed;
 	public int damageGiven;
 	public int attackTimeout;
+	public int health;
 	public float gravity;
 	public int jumpHeight;
 
@@ -22,7 +23,29 @@ public class Enemy : MonoBehaviour  {
 		GetComponent<Rigidbody2D>().velocity = new Vector2 (speed,0);
 	}
 
+	void destroy(){ //destroys the current object
+		Destroy(this.gameObject);
+	}
+
+	bool isDestroyed(){ //checks if the block was destroyed
+		if (health <= 0) {
+			destroy ();
+			return true;
+		}
+		return false;
+	}
+	public void takeDamage(int ammount){ //damages the current object
+		if (ammount > 0) {
+			health -= ammount;
+		}
+		isDestroyed ();
+	}
+
 	void OnCollisionStay2D(Collision2D col) { //When an enemy collides with a block
+		if(col.gameObject.tag == "Box" && timeColliding>=attackTimeout){
+			col.gameObject.GetComponent<CannonClass>().takeDamage(damageGiven);
+			timeColliding=0;
+		}
 		if(col.gameObject.tag == "Block" && timeColliding>=attackTimeout){
 			col.gameObject.GetComponent<Block>().takeDamage(damageGiven);
 			timeColliding=0;

@@ -13,12 +13,6 @@ public class Block : MonoBehaviour {
 
 		if (health <= 0) {
 			GameObject death = GameObject.Instantiate(deathAnimation);
-			
-			for (int i= 0; i < gameObject.transform.parent.gameObject.transform.childCount; i++){
-				GameObject child = gameObject.transform.parent.gameObject.transform.GetChild (i).gameObject;
-				child.GetComponent<Rigidbody2D>().isKinematic = false;
-			}
-
 			death.transform.position = this.transform.position;
 			destroy ();
 			return true;
@@ -27,11 +21,12 @@ public class Block : MonoBehaviour {
 		return false;
 	}
 
-	public void takeDamage(int ammount){
+	public void takeDamage(int ammount){ 
+		//damages the current object
 		if (ammount > 0) {
 			health -= ammount;
 		}
-		print ("Take Damage Called");
+		isDestroyed ();
 	}
 
 	// Use this for initialization
@@ -41,7 +36,6 @@ public class Block : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		isDestroyed ();
 	}
 
 	void OnCollisionEnter2D (Collision2D col){

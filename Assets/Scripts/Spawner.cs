@@ -5,16 +5,23 @@ public class Spawner : MonoBehaviour {
 	
 	// Groups
 	public GameObject[] groups;
+	public GameObject[] specials;
 
 	public void spawnNext() {
 		// Random Index
-		int i = Random.Range(0, groups.Length);
-
-		// Spawn Group at current Position
-		Instantiate(groups[i],
-		            transform.position,
-		            Quaternion.identity);
-
+		int rollForGlory = Random.Range (1, 99);
+		if (rollForGlory > 90) {
+			int i = Random.Range (0, specials.Length);
+			Instantiate (specials [i],
+			             transform.position,
+			             Quaternion.identity);
+		} 
+		else {
+			int i = Random.Range (0, groups.Length);
+			Instantiate (groups [i],
+			             transform.position,
+			             Quaternion.identity);
+		}
 	}
 
 	void Start() {

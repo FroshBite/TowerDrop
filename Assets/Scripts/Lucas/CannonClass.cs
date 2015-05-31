@@ -10,13 +10,25 @@ public class CannonClass : MonoBehaviour {
 	public int health;
 
 	int i = 0;
-	
+
+	public void takeDamage(int ammount){ 
+		//damages the current object
+		if (ammount > 0) {
+			health -= ammount;
+		} else {
+			GameObject obj = GameObject.Instantiate(deathAnimation);
+			obj.transform.position = this.transform.position;
+			Destroy(gameObject);
+		}
+	}
+
 	// Use this for initialization
 	void Start () {
 	}
 	
 	// Update is called once per frame
 	void Update () {
+
 		// Every second, shoot a bullet
 		i ++;
 		if (i >= shoot_rate) {
@@ -33,8 +45,12 @@ public class CannonClass : MonoBehaviour {
 		fired_bullet.transform.position = pos;
 	}
 	
+
 	void OnCollisionEnter2D (Collision2D col){
 
+		Debug.Log ("Collision with");
+		Debug.Log (col.gameObject.tag);
+		
 		if (col.gameObject.tag == "Bullet") {
 			health -= 1;
 			if (health <= 0){
