@@ -33,7 +33,23 @@ public class CannonClass : MonoBehaviour {
 		pos.x -= bullet_offset;
 		fired_bullet.transform.position = pos;
 	}
-	
+	void destroy(){
+		Destroy(this.gameObject);
+	}
+	bool isDestroyed(){ //checks if the block was destroyed
+		if (health <= 0) {
+			destroy ();
+			return true;
+		}
+		return false;
+	}
+
+	public void takeDamage(int ammount){ //damages the current object
+		if (ammount > 0) {
+			health -= ammount;
+		}
+		isDestroyed ();
+	}
 	void OnCollisionEnter2D (Collision2D col){
 
 		Debug.Log ("Collision with");
