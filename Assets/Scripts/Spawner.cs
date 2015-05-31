@@ -6,13 +6,16 @@ public class Spawner : MonoBehaviour {
 	// Groups
 	public GameObject[] groups;
 	public GameObject[] specials;
-
+	public GameObject queueSpot;
+	private Vector3 queuePosition;
 	//Queue
 	private Queue qBlocks = new Queue();
 	private const byte QUEUE_LENGTH = 5;
 
 	//Preview Location
-	private Vector3 location = new Vector3 (25,0,0);
+	private Vector3 location = new Vector3 (12,7,0);
+
+
 
 	public void spawnNext() {
 		initNextGroup ();
@@ -62,9 +65,27 @@ public class Spawner : MonoBehaviour {
 		generateQueueObject ();
 		generateQueueObject ();
 		spawnNext();
+		queuePosition = queueSpot.transform.position;
 	}
 
 	void Update() {
+		for (int i =0; i<4; i++) {
+
+			GameObject childQueue = queueSpot.transform.GetChild (i).gameObject;
+			GameObject next = checkNextGroup();
+			GameObject childNext = checkNextGroup().transform.GetChild (i).gameObject;
+
+			Vector3 nextPosition = next.transform.position;
+			Vector3 queueNextPosition = childNext.transform.position;
+			Vector3 newPosition = new Vector3(queuePosition.x+queueNextPosition.x-nextPosition.x ,queuePosition.y+queueNextPosition.y-nextPosition.y,0 );
+
+			childQueue.GetComponent<SpriteRenderer>().sprite = childNext.GetComponent<SpriteRenderer>().sprite; 
+			childQueue.transform.position = newPosition;
+		}
+
+
+		
+
 		if (Input.GetButtonDown ("Reset")) {
 			for (int x = 0; x < Grid.h; x++){
 				Grid.deleteRow (x);
