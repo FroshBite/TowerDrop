@@ -10,6 +10,7 @@ public class Group : MonoBehaviour {
 	bool heldLeft=false;
 	bool heldRight=false;
 
+	Object spawner = Object.FindObjectOfType<Spawner>();
 
 	bool isValidGridPos() {        
 		foreach (Transform child in transform) {
@@ -128,7 +129,8 @@ public class Group : MonoBehaviour {
 				Grid.deleteFullRows();
 				
 				// Spawn next Group
-				FindObjectOfType<Spawner>().spawnNext();
+				spawner.spawnNext();
+				spawner.changePreview();
 				
 				// Disable script
 				enabled = false;
@@ -162,5 +164,7 @@ public class Group : MonoBehaviour {
 				transform.position += new Vector3(-1, 0, 0);
 			}
 		}
+		spawner.generateQueueObject ();
+		spawner.changePreview ();
 	}
 }
