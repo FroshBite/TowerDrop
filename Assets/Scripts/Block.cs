@@ -6,14 +6,19 @@ public class Block : MonoBehaviour {
 	public GameObject deathAnimation;
 
 	void destroy(){
+		int x = (int)this.gameObject.transform.position.x;
+		int y = (int)this.gameObject.transform.position.y;
+		Debug.Log (x);
+		Debug.Log (y);
+		Grid.decreaseRowsAbove(x, y);
 		Destroy(this.gameObject);
 	}
 	bool isDestroyed(){ 
 		//checks if the block was destroyed
 
 		if (health <= 0) {
-			GameObject death = GameObject.Instantiate(deathAnimation);
-			death.transform.position = this.transform.position;
+			//GameObject death = GameObject.Instantiate(deathAnimation);
+			//death.transform.position = this.transform.position;
 			destroy ();
 			return true;
 		}
