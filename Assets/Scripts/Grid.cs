@@ -38,7 +38,7 @@ public class Grid : MonoBehaviour {
 	}
 
 	public static void decreaseRowsAbove(int x, int y) { // loop decreaseRow on all rows above row destroyed
-		for (int i = y; i < h; ++i) {
+		for (int i = y + 1; i < h - 1; i++) {
 			decreaseRow (x, i);
 		}
 	}
