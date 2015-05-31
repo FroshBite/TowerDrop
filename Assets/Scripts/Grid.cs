@@ -2,7 +2,7 @@
 using System.Collections;
 
 public class Grid : MonoBehaviour {
-	// 24 x 12 dimension grid
+	// 24 x (arbitrary height) dimension grid
 	public static int w = 24;
 	public static int h = 50;
 	public static Transform[,] grid = new Transform[w, h];
@@ -61,4 +61,18 @@ public class Grid : MonoBehaviour {
 		}
 	}
 
+	public static void decreaseColumns(int x, int y){
+		for (int i = y + 1; y < h; y++) {
+			if (grid[x, i] != null) {
+				grid [x,i-1] = grid [x,i];
+				grid[x, i-1].position += new Vector3(0, -1, 0);
+			}
+		}
+	}
+
+	public static void decreaseColumnsAbove(int x, int y){
+		for (int i = y; y < h; i++) {
+			decreaseColumns (x,i);
+		}
+	}
 }

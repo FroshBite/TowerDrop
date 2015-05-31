@@ -29,14 +29,14 @@ public class Spawner : MonoBehaviour {
 
 	public void generateQueueObject(){
 		// Random Index
-		int rollForGlory = Random.Range (75, 99);
+		int rollForGlory = Random.Range (80, 99);
 		if (rollForGlory > 90) {
 			int i = Random.Range (0, specials.Length);
 			addToGroupQueue (specials[i]);
 		}
 		else{
 			int i = Random.Range (0, groups.Length);
-			Debug.Log (i);
+			//Debug.Log (i);
 			addToGroupQueue (groups[i]);	
 		}	
 	}

@@ -2,7 +2,7 @@
 using System.Collections;
 
 public class Block : MonoBehaviour {
-	public int health=5;
+	public int health = 3;
 	public int damageGiven=15;
 	public GameObject deathAnimation;
 
@@ -11,7 +11,7 @@ public class Block : MonoBehaviour {
 		int y = (int)this.gameObject.transform.position.y;
 		Debug.Log (x);
 		Debug.Log (y);
-		Grid.decreaseRowsAbove(x, y);
+		//Grid.decreaseColumns(x, y);
 		Destroy(this.gameObject);
 	}
 
