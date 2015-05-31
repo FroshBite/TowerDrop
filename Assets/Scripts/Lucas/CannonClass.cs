@@ -63,11 +63,10 @@ public class CannonClass : MonoBehaviour {
 
 	void destroy(){
 		int x = (int)this.gameObject.transform.position.x;
-		int y = (int)this.gameObject.transform.position.y;
-		Debug.Log (x);
-		Debug.Log (y);
+		int y = (int)this.gameObject.transform.position.y;;
 		Grid.decreaseColumns(x, y);
 		Destroy(this.gameObject);
+		Grid.grid[x, y] = null;
 	}
 
 	bool isDestroyed(){ //checks if the block was destroyed
