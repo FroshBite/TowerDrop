@@ -161,7 +161,7 @@ MonoBehaviour:
   speed: 2
   damageGiven: 10
   attackTimeout: 5
-  health: 10
+  health: 50
   gravity: 10
   jumpHeight: 0
   deathAnimation: {fileID: 105918, guid: 277341817a811454bbd5e1c1f2c6857f, type: 2}

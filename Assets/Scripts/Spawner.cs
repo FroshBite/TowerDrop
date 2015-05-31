@@ -7,7 +7,6 @@ public class Spawner : MonoBehaviour {
 	public GameObject[] groups;
 	public GameObject[] specials;
 	public GameObject queueSpot;
-	public GameObject enemy;
 
 	private Vector3 queuePosition;
 
