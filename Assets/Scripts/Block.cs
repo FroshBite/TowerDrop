@@ -2,18 +2,28 @@
 using System.Collections;
 
 public class Block : MonoBehaviour {
-	public static int health=5;
+<<<<<<< HEAD
+	public int health=5;
+=======
+	public int health;
+>>>>>>> 0bb5de2943372a8a6aee74b81396e53d0b5f20fa
 	public GameObject deathAnimation;
 
 	void destroy(){
+		/*int x = (int)this.gameObject.transform.position.x;
+		int y = (int)this.gameObject.transform.position.y;
+		Debug.Log (x);
+		Debug.Log (y);
+		Grid.decreaseRowsAbove(x, y);*/
 		Destroy(this.gameObject);
 	}
+
 	bool isDestroyed(){ 
 		//checks if the block was destroyed
 
 		if (health <= 0) {
-			GameObject death = GameObject.Instantiate(deathAnimation);
-			death.transform.position = this.transform.position;
+			//GameObject death = GameObject.Instantiate(deathAnimation);
+			//death.transform.position = this.transform.position;
 			destroy ();
 			return true;
 		}
@@ -21,7 +31,8 @@ public class Block : MonoBehaviour {
 		return false;
 	}
 
-	public void takeDamage(int ammount){ 
+	public void takeDamage(int ammount){
+		print (health);
 		//damages the current object
 		if (ammount > 0) {
 			health -= ammount;
@@ -40,7 +51,7 @@ public class Block : MonoBehaviour {
 
 	void OnCollisionEnter2D (Collision2D col){
 				
-		//takeDamage (3);
+		takeDamage (3);
 		
 	}
 

@@ -4,7 +4,7 @@ using System.Collections;
 public class Enemy : MonoBehaviour  {
 	public float speed;
 	public int damageGiven;
-	public int attackTimeout;
+	public float attackTimeout;
 	public int health;
 	public float gravity;
 	public int jumpHeight;
@@ -42,14 +42,13 @@ public class Enemy : MonoBehaviour  {
 	}
 
 	void OnCollisionStay2D(Collision2D col) { //When an enemy collides with a block
-		if(col.gameObject.tag == "Box" && timeColliding>=attackTimeout){
+		if(col.gameObject.tag == "Box" && Time.realtimeSinceStartup-timeColliding>=attackTimeout){
 			col.gameObject.GetComponent<CannonClass>().takeDamage(damageGiven);
-			timeColliding=0;
+			timeColliding=Time.realtimeSinceStartup;
 		}
-		if(col.gameObject.tag == "Block" && timeColliding>=attackTimeout){
+		if(col.gameObject.tag == "Block" && Time.realtimeSinceStartup-timeColliding>=attackTimeout){
 			col.gameObject.GetComponent<Block>().takeDamage(damageGiven);
-			timeColliding=0;
+			timeColliding=Time.realtimeSinceStartup;
 		}
-		timeColliding = (int)Time.realtimeSinceStartup;
 	}
 }

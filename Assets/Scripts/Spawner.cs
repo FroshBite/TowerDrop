@@ -13,8 +13,8 @@ public class Spawner : MonoBehaviour {
 	private const byte QUEUE_LENGTH = 5;
 
 	//Preview Location
-	private Vector3 location = new Vector3 (12,7,0);
 
+	private Vector3 location = new Vector3 (25,6,0);
 
 
 	public void spawnNext() {
@@ -29,7 +29,7 @@ public class Spawner : MonoBehaviour {
 
 	public void generateQueueObject(){
 		// Random Index
-		int rollForGlory = Random.Range (1, 99);
+		int rollForGlory = Random.Range (75, 99);
 		if (rollForGlory > 90) {
 			int i = Random.Range (0, specials.Length);
 			addToGroupQueue (specials[i]);

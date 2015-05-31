@@ -25,21 +25,21 @@ public class Grid : MonoBehaviour {
 		}
 	}
 
-	public static void decreaseRow(int y) { // loop on row to move down
-		for (int x = 0; x < w; ++x) {
-			if (grid[x, y] != null) {
+	public static void decreaseRow(int x, int y) { // loop on row to move down
+		for (int i = x; i < w; ++i) {
+			if (grid[i, y] != null) {
 				// Move one towards bottom
-				grid[x, y-1] = grid[x, y];
-				grid[x, y] = null;
+				grid[i, y-1] = grid[i, y];
+				grid[i, y] = null;
 				// Update Block position
-				grid[x, y-1].position += new Vector3(0, -1, 0);
+				grid[i, y-1].position += new Vector3(0, -1, 0);
 			}
 		}
 	}
 
-	public static void decreaseRowsAbove(int y) { // loop decreaseRow on all rows
-		for (int i = y; i < h; ++i) {
-			decreaseRow (i);
+	public static void decreaseRowsAbove(int x, int y) { // loop decreaseRow on all rows above row destroyed
+		for (int i = y + 1; i < h - 1; i++) {
+			decreaseRow (x, i);
 		}
 	}
 
@@ -55,9 +55,10 @@ public class Grid : MonoBehaviour {
 		for (int y = 0; y < h; ++y) {
 			if (isRowFull(y)) {
 				deleteRow(y);
-				decreaseRowsAbove(y+1);
+				decreaseRowsAbove(0, y+1);
 				--y;
 			}
 		}
 	}
+
 }
