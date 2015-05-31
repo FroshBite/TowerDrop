@@ -21,6 +21,7 @@ public class CannonClass : MonoBehaviour {
 			Destroy(gameObject);
 		}
 	}
+	
 
 	// Use this for initialization
 	void Start () {
@@ -44,7 +45,18 @@ public class CannonClass : MonoBehaviour {
 		pos.x -= bullet_offset;
 		fired_bullet.transform.position = pos;
 	}
-	
+
+	void destroy(){
+		Destroy(this.gameObject);
+	}
+	bool isDestroyed(){ //checks if the block was destroyed
+		if (health <= 0) {
+			destroy ();
+			return true;
+		}
+		return false;
+	}
+
 
 	void OnCollisionEnter2D (Collision2D col){
 
