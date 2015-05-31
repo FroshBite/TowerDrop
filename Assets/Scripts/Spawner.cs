@@ -35,8 +35,8 @@ public class Spawner : MonoBehaviour {
 			addToGroupQueue (specials[i]);
 		}
 		else{
-			int i = Random.Range (0, groups.Length);
 			//Debug.Log (i);
+			int i = Random.Range (0, groups.Length);
 			addToGroupQueue (groups[i]);	
 		}	
 	}

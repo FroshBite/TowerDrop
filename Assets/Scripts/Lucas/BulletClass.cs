@@ -3,6 +3,8 @@ using System.Collections;
 
 public class BulletClass : MonoBehaviour {
 	public int damageGiven;
+
+
 	int i = 0;
 
 	public float left_bound;
@@ -32,7 +34,7 @@ public class BulletClass : MonoBehaviour {
 	}
 
 	void OnCollisionEnter2D (Collision2D col){
-		Debug.Log ("Collision with "+col.gameObject.tag);
+
 
 		//the box tag is other cannons
 		if (col.gameObject.tag == "Block") {
@@ -46,6 +48,12 @@ public class BulletClass : MonoBehaviour {
 
 		//the cannon hits an enemy
 		if (col.gameObject.tag == "Enemy" ) {
+			if (col.collider == col.gameObject.GetComponent<Enemy>().head)
+				Debug.Log ("Head hit!");
+			if (col.collider == col.gameObject.GetComponent<Enemy>().body)
+				Debug.Log ("Body hit!");
+			else
+				Debug.Log ("????");
 			col.gameObject.GetComponent<Enemy>().takeDamage(damageGiven);
 		}
 
