@@ -47,7 +47,10 @@ MonoBehaviour:
   - {fileID: 165450, guid: d788b4e188fa21d45b37c199ce52aa99, type: 2}
   - {fileID: 103432, guid: c99fd4b27a231354eb25c1b09af51d99, type: 2}
   - {fileID: 186522, guid: 5d440913d5b711043b9d4c0004b0416e, type: 2}
-  specials: []
+  specials:
+  - {fileID: 139472, guid: 65987d14f7d973640b63e78531586759, type: 2}
+  - {fileID: 130756, guid: 3525a966036a287489a9e2b08214623a, type: 2}
+  queueSpot: {fileID: 188710, guid: f38e683f84f6f56499282667ca3176a2, type: 2}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

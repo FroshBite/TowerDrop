@@ -9,6 +9,8 @@ TagManager:
   - Group
   - Box
   - Bullet
+  - Enemy Weakness
+  - Enemy Attack
   layers:
   - Default
   - TransparentFX
