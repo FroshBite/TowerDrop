@@ -53,6 +53,7 @@ public class Enemy : MonoBehaviour  {
 		}
 
 		if(col.gameObject.tag == "Block" && Time.realtimeSinceStartup-timeColliding>=attackTimeout){
+			print ("enemy is colliding with a block");
 			col.gameObject.GetComponent<Block>().takeDamage(damageGiven);
 			timeColliding=Time.realtimeSinceStartup;
 		}
