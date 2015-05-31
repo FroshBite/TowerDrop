@@ -69,11 +69,10 @@ public class Spawner : MonoBehaviour {
 		generateQueueObject ();
 		spawnNext();
 		queuePosition = queueSpot.transform.position;
-
-		GameObject skeleton = GameObject.Instantiate (enemy);
+		
 		Vector3 pos = new Vector3 (1.5775f, 0.8206f, 0f);
 
-		skeleton.transform.position = pos;
+
 	}
 
 	void Update() {
