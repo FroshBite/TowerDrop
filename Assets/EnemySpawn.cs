@@ -4,15 +4,17 @@ using System.Collections;
 public class EnemySpawn : MonoBehaviour {
 	public GameObject enemy;
 
-	private int maxWaves=20;
+	private int maxWaves=5;
 	private int waveSize = 5;
-	private int packSize = 1;
+	private int initialWaveSize = 5;
+	private int packSize = 5;
+	private int initialPackSize = 5;
 
 	//timers
 	private int packTimer =0;
 	private int mobTimer = 0;
-	public int packBuffer = 30;
-	private int mobBuffer = 30;
+	public int packBuffer = 500;
+	private int mobBuffer = 60;
 
 	//Switch determines whether a wave is spawned or not
 	private bool spawnMode = true;
@@ -38,7 +40,8 @@ public class EnemySpawn : MonoBehaviour {
 
 		if (packSize == 0) {
 			spawnMode=false;
-			packSize=1;
+			packSize=initialPackSize;
+			waveSize--;
 		}
 
 		if(packTimer==packBuffer){
@@ -46,6 +49,18 @@ public class EnemySpawn : MonoBehaviour {
 			spawnMode=true;
 		}
 
+		if (waveSize == 0) {
+			waveSize=initialWaveSize;
+			maxWaves-=1;
+			initialPackSize++;
+		}
+
+		if (maxWaves == 0) {
+			spawnMode=false;
+			if(GameObject.Find("Enemy(Clone)") ==null){
+				victory ();
+			}
+		}
 	}
 
 	public void victory(){

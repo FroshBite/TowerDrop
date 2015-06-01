@@ -69,7 +69,6 @@ public class Spawner : MonoBehaviour {
 		generateQueueObject ();
 		spawnNext();
 		queuePosition = queueSpot.transform.position;
-
 		Vector3 pos = new Vector3 (1.5775f, 0.8206f, 0f);
 
 	}
