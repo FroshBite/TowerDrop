@@ -70,10 +70,8 @@ public class Spawner : MonoBehaviour {
 		spawnNext();
 		queuePosition = queueSpot.transform.position;
 
-		GameObject skeleton = GameObject.Instantiate (enemy);
 		Vector3 pos = new Vector3 (1.5775f, 0.8206f, 0f);
 
-		skeleton.transform.position = pos;
 	}
 
 	void Update() {
@@ -95,10 +93,11 @@ public class Spawner : MonoBehaviour {
 		
 
 		if (Input.GetButtonDown ("Reset")) {
-			for (int x = 0; x < Grid.h; x++){
-				Grid.deleteRow (x);
-			}
-			spawnNext ();
+			Application.LoadLevel (0);
+			//for (int x = 0; x < Grid.h; x++){
+			//	Grid.deleteRow (x);
+			//}
+			//spawnNext ();
 		}
 	}
 	
