@@ -23,3 +23,15 @@
   - Assets
   - Scipts
   - ???
+
+###### Collision Matrix
+
+| --- | Special  | Projectiles | Enemies | Block Groups | Blocks |
+| --- | ------------- | ------------- | ------------- | ------------- | ------------- | ------------- |
+| Blocks |   | x  | x  |   | x  |
+| Block Groups |   |  | x  |  | - |
+| Enemies |   | x |  | - | - |
+| Projectiles |   |  |- | - | - |
+| Special |   | - | - | - | - |
+
+		
