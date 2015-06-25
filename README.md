@@ -1,6 +1,10 @@
 # TowerDrop 
 #### Tower Defence + Tetris
 
+###### Unity Setup:
+		In Edit > Project Settings > Editor :
+		- Set Version Control to have visible meta files
+		- Set Asset Serialization Mode to "Forced Text" 
 ###### Tags:
   - Block
   - Bullet / Projectile
