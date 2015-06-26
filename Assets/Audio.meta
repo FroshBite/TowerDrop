@@ -1,8 +1,15 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
 guid: 213b76530bbf0410db963f8443b98bb6
 folderAsset: yes
 timeCreated: 1435274950
 licenseType: Pro
+=======
+guid: b7b0f8fb5a2b2974fa82d83eb7571e12
+folderAsset: yes
+timeCreated: 1435274566
+licenseType: Free
+>>>>>>> serge
 DefaultImporter:
   userData: 
   assetBundleName: 
