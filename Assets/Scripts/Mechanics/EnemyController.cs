@@ -3,7 +3,7 @@ using System.Collections;
 
 public class EnemyController : MonoBehaviour {
 	public Miner miner;
-	public unsigned int spawnRate;
+	public uint spawnRate;
 
 
 	// Use this for initialization
