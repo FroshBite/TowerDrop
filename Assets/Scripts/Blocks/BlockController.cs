@@ -1,14 +1,10 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class EnemyController : MonoBehaviour {
-	public Miner miner;
-	public uint spawnRate;
-
+public class BlockController : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-
 	
 	}
 	
